@@ -9,7 +9,7 @@ namespace blogbackend.Models
     {
         public int id { get; set; }
 
-        public string userID { get; set; }
+        public int userID { get; set; }
 
         public string PublishedName { get; set; }
 
@@ -25,10 +25,10 @@ namespace blogbackend.Models
 
         public string Tags { get; set; }
 
-        public string isPublished { get; set; }
+        public bool isPublished { get; set; }
 
-        public string isDeleted { get; set; }
+        public bool isDeleted { get; set; }
 
-        public BlogItemModel() {}
+        public BlogItemModel() { }
     }
 }

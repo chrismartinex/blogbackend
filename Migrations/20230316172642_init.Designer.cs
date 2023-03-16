@@ -11,7 +11,7 @@ using blogbackend.Services.Context;
 namespace blogbackend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230310191555_init")]
+    [Migration("20230316172642_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace blogbackend.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "7.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -60,17 +60,14 @@ namespace blogbackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("isDeleted")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("isPublished")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("isPublished")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("userID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("userID")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 

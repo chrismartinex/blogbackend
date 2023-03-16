@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using blogbackend.Models;
 using blogbackend.Services.Context;
 
 namespace blogbackend.Services
@@ -27,12 +28,17 @@ namespace blogbackend.Services
 
   public IEnumerable<BlogItemModel> GetItemsByUserId(int userId)
   {
-   return _context.BlogInfo.Where(item => item.userId == userId);
+   return _context.BlogInfo.Where(item => item.userID == userId);
 
   }
   public IEnumerable<BlogItemModel> GetItemsByCategory(string category)
   {
-   return _context.BlogInfo.Where(item => item.category == category);
+   return _context.BlogInfo.Where(item => item.Category == category);
+  }
+
+  public IEnumerable<BlogItemModel> GetItemsByDate(string Date)
+  {
+   return _context.BlogInfo.Where(item => item.Date == Date);
   }
 
 
@@ -47,7 +53,7 @@ namespace blogbackend.Services
 
    List<BlogItemModel> AllBlogWithTag = new List<BlogItemModel>();
 
-   var allItems = GetAllBlogItems().Tolist();
+   var allItems = GetAllBlogItems().ToList();
 
    for (int i = 0; i < allItems.Count; i++)
    {
@@ -56,7 +62,7 @@ namespace blogbackend.Services
 
     var itemArr = item.Tags.Split(",");
 
-    for (int j = 0; j < itemArr.length; j++)
+    for (int j = 0; j < itemArr.Length; j++)
     {
      //checking if item array has the tag were looking for
      if (itemArr[j].Contains(Tag))
@@ -69,5 +75,19 @@ namespace blogbackend.Services
    return AllBlogWithTag;
 
   }
+  public bool UpdateBlogItem(BlogItemModel BlogUpdate){
+   _context.Update<BlogItemModel>(BlogUpdate);
+   return _context.SaveChanges() !=0;
+  }
+  public bool DeleteBlogItem(BlogItemModel BlogDelete){
+   BlogDelete.isDeleted = true;
+   _context.Update<BlogItemModel>(BlogDelete);
+   return _context.SaveChanges() != 0;
+  }
+ public BlogItemModel GetBlogItemById(int id){
+  return _context.BlogInfo.SingleOrDefault(item => item.id == id);
+ }
+
+
  }
 }

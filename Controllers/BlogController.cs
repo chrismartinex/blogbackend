@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using blogbackend.Models;
+using blogbackend.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace blogbackend.Controllers
@@ -24,17 +26,17 @@ namespace blogbackend.Controllers
         }
 
  [HttpGet]
- [Get("GetAllBlogItems")]
- public IEnumerable<GetItemModel> GetAllBlogItems()
+ [Route("GetAllBlogItems")]
+ public IEnumerable<BlogItemModel> GetAllBlogItems()
  {
-  return_data.GetAllBlogItems();
+  return _data.GetAllBlogItems();
  }
 
  [HttpGet]
  [Route("GetItemsByUSerId/(userId")]
  public IEnumerable<BlogItemModel> GetItemsByUserId(int userId)
  {
-  return _data.GetItemsByUserIdUserId(userId);
+  return _data.GetItemsByUserId(userId);
  }
 
  [HttpGet]
@@ -66,6 +68,26 @@ namespace blogbackend.Controllers
  {
   return _data.GetItemsByTag(Tag);
  }
+[HttpGet]
+  [Route("GetBlogItemById/{id}")]
+  public BlogItemModel GetBlogItemById(int id)
+  {
+   return _data.GetBlogItemById(id);
+  }
+  [HttpPost]
+  [Route("UpdateBlogItem")]
+  public bool UpdateBlogItem(BlogItemModel BlogUpdate)
+  {
+   return _data.UpdateBlogItem(BlogUpdate);
+  }
+  [HttpPost]
+  [Route("UpdateBlogItem")]
+  public bool DeleteBlogItem(BlogItemModel BlogDelete)
+  {
+   return _data.DeleteBlogItem(BlogDelete);
+  }
 
 }
+
+
 }

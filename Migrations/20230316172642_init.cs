@@ -16,7 +16,7 @@ namespace blogbackend.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    userID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    userID = table.Column<int>(type: "int", nullable: false),
                     PublishedName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -24,8 +24,8 @@ namespace blogbackend.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Tags = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    isPublished = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    isDeleted = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    isPublished = table.Column<bool>(type: "bit", nullable: false),
+                    isDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

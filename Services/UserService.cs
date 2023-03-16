@@ -141,7 +141,7 @@ namespace blogbackend.Services
             _context.Update<UserModel>(userToUpdate);
             return  _context.SaveChanges() != 0;
         }
-        public bool UpdateUsename(int id, string username){
+        public bool UpdateUsername(int id, string username){
             //This is sending over just the id and the username
             //we have to get the object to then be updated
             UserModel foundUser = GetUserById(id);
@@ -157,7 +157,7 @@ namespace blogbackend.Services
         }
 
         public UserModel GetUserById(int id){
-            return _context.UserInfo.SingleOrDefault(user => user.Id == id);
+            return _context.UserInfo.SingleOrDefault(user => user.id == id);
 
         }
 
