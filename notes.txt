@@ -1,0 +1,91 @@
+Blog api notes
+//Goals for the blog api
+  Create an api for the front end of our blog. This api must handle all of our Create Update Delete
+  In this app , the user should be able to log in, they should be able to create an account, Home Page (see all publish blog items)
+  We also had a profile page ( edit user's blog  items, delete a blog item, add blog item)
+  //the structure of how the back end will look lik
+  CodeBase structure
+  ///////controllers
+  they are the interaction of the user with the front end.
+  Controller / Folder
+   User Controller /// File
+         Login /// EndPoint
+         Create a User
+         Update a User
+         Delete a user
+   BlogController // File
+     CreateBlogItem // EndPoint // C
+     Get All Blog Items         //R
+     Update Blog Items          //U
+     Delete Blog Items          //D
+     Get blog items by userID
+     Get blog items by Tags
+     Get blog items by Category // send this stuff in the back end. easier on everyone
+   We also create the following below
+////Services
+   Service // Folder
+     Context // Folder
+          DataContext // File
+          UserService // File
+          GetUserByUserName (for log in purposes)
+         Login /// Function
+         Create a User
+         Update a User
+         Delete a user
+            BlogService // File
+             CreateBlogItem //  Function // C
+             Get All Blog Items         //R
+             Update Blog Items          //U
+           Delete Blog Items          //D
+   PasswordService // File
+//it verifies the hash password to encrypt the user input
+    Hash Password
+    Verify Hash Password
+////Models
+   //Models // Folder
+      UseModel // File
+      int ID
+      string userName
+      string Hash ( we encrypt to the dataBase)
+      //encrypt password we dont just take it, we encrytp
+BlogItemModel // File
+ int ID
+ int userID
+ string PublishedName
+ string Date
+ string Title
+ string Image
+ string Description
+ string Category
+ string Tags
+ bool isPublished
+ bool isDeleted (soft delete. acts like its deleted its not its in the data base, )
+ ------ Items above save to DataBase ---------------------
+   Data Transfer Object, what ever data is in the front end it can move around to the back end.
+   data base a bunch of tables, user table, password table, and so on
+   ]
+ DTOs // Folder
+LoginDTO // File
+string userName
+string Password
+   CreateAccountDTO // DTO File
+   string userName
+   strung Password
+   CreateAccount // File
+   int ID = 0 (keep it at zero)
+   string userName
+   string Password
+   PasswordDTO // File
+   string Salt
+   string Hash
+  //controller and services do the same
+
+
+
+
+Admin: AcademyBlogAdmin
+Password: AcademyBlogPassword!
+
+
+
+
