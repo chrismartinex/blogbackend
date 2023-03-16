@@ -1,0 +1,5 @@
+SELECT TOP (1000) [id]
+      ,[Username]
+      ,[Salt]
+      ,[Hash]
+  FROM [dbo].[UserInfo]
