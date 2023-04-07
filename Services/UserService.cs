@@ -173,5 +173,13 @@ namespace blogbackend.Services
             }
             return result;
         }
+
+        public UserIdDTO GetUserIdDTO (string username) {
+            var userInfo = new UserIdDTO();
+            var foundUser = _context.UserInfo.SingleOrDefault(UserIdDTO => UserIdDTO.Username == username);
+            userInfo.userId = foundUser.id;
+            userInfo.PublisherName = foundUser.Username;
+            return userInfo;
+        }
     }
 }

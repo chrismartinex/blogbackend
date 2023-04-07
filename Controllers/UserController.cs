@@ -48,7 +48,7 @@ namespace blogbackend.Controllers
 
 
         [HttpPost]
-        [Route("UpdateUser/{id}{username}")]
+        [Route("UpdateUser/{id}/{username}")]
         public bool UpdateUser(int id, string username){
             return _data.UpdateUsername(id, username);
         }
@@ -60,5 +60,13 @@ namespace blogbackend.Controllers
         public bool DeleteUser(string userToDelete){
             return _data.DeleteUser(userToDelete);
         }
+
+        [HttpGet]
+        [Route("UserByUsername/{username}")]
+
+        public UserIdDTO GetUserByusername(string username){
+    return _data.GetUserIdDTO(username);
+        }
+       
     }
 }

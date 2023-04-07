@@ -63,7 +63,7 @@ namespace blogbackend.Controllers
  }
 
  [HttpGet]
- [Route("GetItemsBytag/{Tag}")]
+ [Route("GetItemsByTag/{Tag}")]
  public List<BlogItemModel> GetItemsByTag(string Tag)
  {
   return _data.GetItemsByTag(Tag);

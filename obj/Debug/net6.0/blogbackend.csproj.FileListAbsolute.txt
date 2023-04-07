@@ -162,3 +162,8 @@
 /Users/chrismartinez/Desktop/blogbackend/obj/Debug/net6.0/blogbackend.csproj.CopyComplete
 /Users/chrismartinez/Desktop/blogbackend/obj/Debug/net6.0/blogbackend.genruntimeconfig.cache
 /Users/chrismartinez/Desktop/blogbackend/obj/Debug/net6.0/ref/blogbackend.dll
+/Users/chrismartinez/Desktop/blogbackend/bin/Debug/net6.0/publish/web.config
+/Users/chrismartinez/Desktop/blogbackend/bin/Debug/net6.0/publish/appsettings.Development.json
+/Users/chrismartinez/Desktop/blogbackend/bin/Debug/net6.0/publish/appsettings.json
+/Users/chrismartinez/Desktop/blogbackend/bin/Debug/net6.0/publish/blogbackend.deps.json
+/Users/chrismartinez/Desktop/blogbackend/bin/Debug/net6.0/publish/blogbackend.runtimeconfig.json
